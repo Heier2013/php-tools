@@ -17,7 +17,7 @@ date_default_timezone_set(TIMEZONE);
  * $db_user             数据库用户名称
  * $db_password			数据库用户密码
  * $db_dsn				数据库数据源名称
- & $con                 数据库连接资源符 
+ * $con                 数据库连接资源符 
  *
  * 方法：
  * getConnect()			获取连接资源符
@@ -33,19 +33,6 @@ class DBUtil {
 	
 	private $db_dsn;
 	private $con;
-	
-	/**
-	 * 构造函数
-	 */
-	/*
-	function __construct( $dsn='mysql:dbname=hostbill;host=127.0.0.1', $username='root', $password='htu@hbvhost' ) {
-		$this->dsn 		= $dsn;
-		$this->username = $username;
-		$this->password = $password;
-		$this->con		= $this->connect();				//初始化时自动连接数据库
-		$this->charset();								//初始化时设置默认字符集为utf8
-	}
-	*/
 	
 	/**
 	 * 构造函数
