@@ -11,7 +11,7 @@ date_default_timezone_set(TIMEZONE);
  *          V0.2 2015-11-16 规范编码
  * 
  * 属性：
- * $$db_category        数据库类别
+ * $db_category         数据库类别
  * $db_name             数据库名称
  * $db_host             数据库地址
  * $db_user             数据库用户名称
