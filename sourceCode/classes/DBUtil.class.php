@@ -1,5 +1,8 @@
 <?php
 require_once '../config/db.php';
+
+namespace Heier\Class;
+
 /**
  * 数据库操作类
  *
@@ -37,14 +40,14 @@ class DBUtil
     /**
      * 构造函数
      */
-    public function __construct($db_category=DB_CATEGORY, $db_name=DB_NAME, 
+    public function __construct($db_category=DB_CATEGORY, $db_name=DB_NAME,
         $db_host=DB_HOST, $db_user=DB_USER, $db_password=DB_PASSWORD)
     {
         $this->db_dsn      = $db_category . ':dbname=' . $db_name . ';host=' . $db_host;
         $this->db_user     = $db_user;
         $this->db_password = $db_password;
-
         $this->con         = $this->connect();                          //初始化时自动连接数据库
+
         $this->charset( DB_CHARSET );                                   //初始化时设置默认字符集
     }
 
@@ -70,9 +73,9 @@ class DBUtil
      * @param  $char        所需要设置的字符集
      * @return boolean      返回操作状态
      */
-    public function setCharset( $char )
+    public function setCharset($char)
     {
-        return $this->charset( $char );
+        return $this->charset($char);
     }
 
 
@@ -88,8 +91,8 @@ class DBUtil
      */
     private function connect()
     {
-        try{
-            $con = new PDO( $this->db_dsn, $this->db_user, $this->db_password );
+        try {
+            $con = new PDO($this->db_dsn, $this->db_user, $this->db_password);
         } catch(PDOException $e) {
             return false;
         }
@@ -103,13 +106,14 @@ class DBUtil
      * @access private
      * @return boolean
      */
-    private function charset( $char='UTF8' )
+    private function charset($char='UTF8')
     {
-        try{
+        try {
             $this->con->query( 'SET NAMES '.$char );
         } catch(PDOException $e) {
             return false;
         }
+
         return true;
     }
 
